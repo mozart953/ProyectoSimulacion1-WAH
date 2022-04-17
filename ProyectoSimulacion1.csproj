@@ -132,7 +132,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ELABORACIÓN_PRODUCTO.cs" />
+    <Compile Include="Models\MATERIA_PRIMA.cs" />
     <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\PRODUCTOS.cs" />
+    <Compile Include="Models\PRODUCTOS_TIEMPO.cs" />
+    <Compile Include="Models\PRODUCTO_PERSONA.cs" />
+    <Compile Include="Models\TIEMPO_ATENCION.cs" />
+    <Compile Include="Models\TOTAL_VENTAS_FUTURAS.cs" />
+    <Compile Include="Models\VENTAS_FUTURAS.cs" />
+    <Compile Include="Models\VENTAS_INDIVIDUALES.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
