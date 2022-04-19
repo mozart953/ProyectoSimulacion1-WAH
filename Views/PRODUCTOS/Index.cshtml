@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ProyectoSimulacion1.Models.PRODUCTOS>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE_PRODUCTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRECIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GANANCIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRECIO_COSTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRECIO_OPERATIVO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDAD_EXISTENTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDAD_VENDIDA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE_PRODUCTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRECIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GANANCIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRECIO_COSTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRECIO_OPERATIVO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CANTIDAD_EXISTENTE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CANTIDAD_VENDIDA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.COD_PRODUCTO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.COD_PRODUCTO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.COD_PRODUCTO })
+        </td>
+    </tr>
+}
+
+</table>

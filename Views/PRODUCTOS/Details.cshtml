@@ -1,0 +1,74 @@
+﻿@model ProyectoSimulacion1.Models.PRODUCTOS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PRODUCTOS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE_PRODUCTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE_PRODUCTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GANANCIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GANANCIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO_COSTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO_COSTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO_OPERATIVO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO_OPERATIVO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDAD_EXISTENTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDAD_EXISTENTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDAD_VENDIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDAD_VENDIDA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.COD_PRODUCTO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
