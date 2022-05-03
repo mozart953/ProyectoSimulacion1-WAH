@@ -4,24 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Escenarios</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a type="btn" href=" @Url.Action("Create")" class="btn btn-dark col-5">Crear Nuevo Registro&nbsp&nbsp</a>
 </p>
-<table class="table table-secondary table-striped">
+<table class="table table-dark table-striped">
     <tr>
         <th scope="col">
-            @Html.DisplayNameFor(model => model.CORRELATIVO_HORA)
+           CORRELATIVO HORA
         </th>
         <th scope="col">
-            @Html.DisplayNameFor(model => model.TOTAL_PERSONAS)
+            TOTAL PERSONAS
         </th>
         <th scope="col">
-            @Html.DisplayNameFor(model => model.CANTIDAD_PRODUCTOS)
+            CANTIDAD PRODUCTOS
         </th>
         <th scope="col">
-            @Html.DisplayNameFor(model => model.TOTAL_VENTAS)
+           TOTAL VENTAS
         </th>
         <th></th>
     </tr>
@@ -41,9 +41,10 @@
             @Html.DisplayFor(modelItem => item.TOTAL_VENTAS)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.COD_DETALLE_ESCENARIO }) |
-            @Html.ActionLink("Details", "Details", new { id=item.COD_DETALLE_ESCENARIO }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.COD_DETALLE_ESCENARIO })
+
+            @*<a type="btn" href=" @Url.Action("Edit",new { id = item.COD_DETALLE_ESCENARIO } )" class="btn btn-primary">Editar&nbsp&nbsp</a>*@
+            <a type="btn" href=" @Url.Action("Details",new { id = item.COD_DETALLE_ESCENARIO } )" class="btn btn-success">Detalles&nbsp&nbsp</a>
+            @*<a type="btn" href=" @Url.Action("Delete",new { id = item.COD_DETALLE_ESCENARIO } )" class="btn btn-danger">Eliminar&nbsp&nbsp</a>*@
         </td>
     </tr>
 }

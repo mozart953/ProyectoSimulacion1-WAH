@@ -135,8 +135,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Conexion.cs" />
+    <Compile Include="Models\DETALLE_CLIENTE.cs" />
     <Compile Include="Models\DETALLE_ESCENARIO.cs" />
+    <Compile Include="Models\DETALLE_HORA.cs" />
     <Compile Include="Models\Model2.cs" />
+    <Compile Include="Models\Model3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +220,7 @@
     <Content Include="Views\DETALLE_ESCENARIO\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\DashBoard\Index.cshtml" />
+    <Content Include="Views\DETALLE_ESCENARIO\Detalle2.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,54 @@
+﻿@model  List<ProyectoSimulacion1.Models.DETALLE_CLIENTE>
+
+
+@{
+    ViewBag.Title = "Detalle2";
+}
+
+
+<div style="padding: 8px;">
+    <a type="btn" href=" @Url.Action("Index")" class="btn btn-primary col-5">Regresar&nbsp&nbsp</a>
+</div>
+
+<h2>Detalle Cliente</h2>
+
+<table class="table table-dark table-striped">
+    <tr>
+        <th scope="col">
+            COD DETALLE CLIENTE
+        </th>
+        <th scope="col">
+            CORRELATIVO PRODUCTO
+        </th>
+        <th scope="col">
+            COD PRODUCTO
+        </th>
+        <th scope="col">
+            COD DETALLE HORA
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.COD_DETALLE_CLIENTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CORRELATIVO_PRODUCTO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COD_PRODUCTO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COD_DETALLE_HORA)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+
+

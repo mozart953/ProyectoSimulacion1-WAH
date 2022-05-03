@@ -13,6 +13,9 @@ namespace ProyectoSimulacion1.Controllers
     public class DETALLE_ESCENARIOController : Controller
     {
         private Model2 db = new Model2();
+        //private Model3 db2 = new Model3();
+        DETALLE_HORA db2 = new DETALLE_HORA();
+        DETALLE_CLIENTE db3 = new DETALLE_CLIENTE();
 
         // GET: DETALLE_ESCENARIO
         public ActionResult Index()
@@ -20,19 +23,33 @@ namespace ProyectoSimulacion1.Controllers
             return View(db.DETALLE_ESCENARIO.ToList());
         }
 
-        // GET: DETALLE_ESCENARIO/Details/5
+        // GET: DETALLE_ESCENARIO/Details/5 detalle de hora
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DETALLE_ESCENARIO dETALLE_ESCENARIO = db.DETALLE_ESCENARIO.Find(id);
+            /*DETALLE_ESCENARIO dETALLE_ESCENARIO = db.DETALLE_ESCENARIO.Find(id);
+            
             if (dETALLE_ESCENARIO == null)
             {
                 return HttpNotFound();
+            }*/
+           
+
+
+            return View(db2.listar(id));
+        }
+
+        // GET: DETALLE_ESCENARIO/Detalle2/5 para el detalle de cliente
+        public ActionResult Detalle2(int? id) {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View(dETALLE_ESCENARIO);
+            return View(db3.listar(id));
+        
         }
 
         // GET: DETALLE_ESCENARIO/Create
