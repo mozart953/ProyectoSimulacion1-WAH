@@ -1,0 +1,50 @@
+﻿@model ProyectoSimulacion1.Models.DETALLE_ESCENARIO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DETALLE_ESCENARIO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CORRELATIVO_HORA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CORRELATIVO_HORA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOTAL_PERSONAS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOTAL_PERSONAS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDAD_PRODUCTOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDAD_PRODUCTOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOTAL_VENTAS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOTAL_VENTAS)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.COD_DETALLE_ESCENARIO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

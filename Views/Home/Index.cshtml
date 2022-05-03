@@ -1,34 +1,27 @@
-﻿@{
-    ViewBag.Title = "Proyecto simulacion";
+﻿
+@{
+    ViewBag.Title = "Index";
 }
 
+<div class="alert alert-@ViewBag.alerta"><b>@ViewBag.res</b></div>
+<form  method="post" class="row g-3">
+    <div class="col-6">
+        <label for="input1" class="form-label">Promedio Clientes/Hora - pHORAS</label>
+        <input type="text" class="form-control" name="p_horas" id="p_horas" placeholder="Promedio Cliente/Hora" required />
+    </div>
+    <div class="col-6">
+        <label for="input2" class="form-label">Promedio Productos/Persona - pClientes</label>
+        <input type="text" class="form-control" name="p_clientes" id="p_clientes" placeholder="Promedio Productos/Persona" required />
+    </div>
+    <div class="col-6">
+        <label for="input3" class="form-label">Horas a simular - pProductos</label>
+        <input type="text" class="form-control" name="p_productos" id="p_productos" placeholder="Horas a simular" required />
+    </div>
 
-    <form class="row g-3">
-        <div class="col-6">
-            <label for="input1" class="form-label">Promedio Cliente/Hora</label>
-            <input type="text" class="form-control" id="input1" placeholder="Promedio Cliente/Hora">
-        </div>
-        <div class="col-6">
-            <label for="input2" class="form-label">Promedio Productos/Persona</label>
-            <input type="text" class="form-control" id="input2" placeholder="Promedio Productos/Persona">
-        </div>
-        <div class="col-6">
-            <label for="input3" class="form-label">Horas a simular</label>
-            <input type="text" class="form-control" id="input3" placeholder="Horas a simular">
-        </div>
-        <div class="col-6">
-            <label for="input4" class="form-label">Tiempo en cola</label>
-            <input type="text" class="form-control" id="input4" placeholder="Tiempo en cola">
-        </div>
-        <div class="col-6">
-            <label for="input5" class="form-label">Tiempo en el sistema</label>
-            <input type="text" class="form-control" id="input5" placeholder="Tiempo en el sistema">
-        </div>
-        
-        
-        <div class="col-12">
-            <button type="submit" class="btn btn-success btn-lg">Calcular</button>
-        </div>
-    </form>
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-success btn-lg">Calcular</button>
+    </div>
+</form>
 
 

@@ -128,10 +128,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DETALLE_ESCENARIOController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Conexion.cs" />
+    <Compile Include="Models\DETALLE_ESCENARIO.cs" />
+    <Compile Include="Models\Model2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -172,7 +176,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\PRODUCTOS\Create.cshtml" />
     <Content Include="Views\PRODUCTOS\Delete.cshtml" />
     <Content Include="Views\PRODUCTOS\Details.cshtml" />
@@ -181,7 +184,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -207,6 +209,12 @@
     <Content Include="Scripts\bootstrap.esm.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Views\DETALLE_ESCENARIO\Create.cshtml" />
+    <Content Include="Views\DETALLE_ESCENARIO\Delete.cshtml" />
+    <Content Include="Views\DETALLE_ESCENARIO\Details.cshtml" />
+    <Content Include="Views\DETALLE_ESCENARIO\Edit.cshtml" />
+    <Content Include="Views\DETALLE_ESCENARIO\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
