@@ -36,7 +36,7 @@ namespace ProyectoSimulacion1.Controllers
             if (escenario.RealizarEscenario(p_horas, p_clientes, p_productos))
             {
                 ViewBag.alerta = "success";
-                ViewBag.res = "Escenario creado correctamente";
+                ViewBag.res = "Escenario creado correctamente, revisar escenarios!";
                 //return RedirectToAction("Index");
             }
             else
