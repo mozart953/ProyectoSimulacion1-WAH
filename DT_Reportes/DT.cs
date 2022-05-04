@@ -14,6 +14,10 @@ namespace ProyectoSimulacion1.DT_Reportes
         String c = "Data Source=DESKTOP-E80R7VG\\;Initial Catalog=DpanSimulacion;Integrated Security=True";
 
         // Wilson
+        // String c = "Data Source = localhost; Initial Catalog = DpanSimulacion1; User ID = sa; Password = sa; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+
+        //Yascal
+        // String c = "Data Source=DESKTOP-M8SVI80\\SQLEXPRESS;Initial Catalog=DpanSimulacion;Integrated Security=True";
 
 
         public List<ReporteTopProducto> RetornarTop()

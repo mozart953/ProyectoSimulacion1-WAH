@@ -4,46 +4,53 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Escenarios</h2>
+<div class="text-center"><h2>Escenarios</h2></div>
 
-<table class="table table-dark table-striped">
-    <tr>
-        <th scope="col">
-           CORRELATIVO HORA
-        </th>
-        <th scope="col">
-            TOTAL PERSONAS
-        </th>
-        <th scope="col">
-            CANTIDAD PRODUCTOS
-        </th>
-        <th scope="col">
-           TOTAL VENTAS
-        </th>
-        <th></th>
-    </tr>
+<div class="row" style="margin-top:20px">
+    <div class="col"></div>
+    <div class="col-8">
+        <table class="table table-dark table-striped text-center">
+            <tr>
+                <th scope="col">
+                    HORA
+                </th>
+                <th scope="col">
+                    CLIENTES TOTALES
+                </th>
+                <th scope="col">
+                    PRODUCTOS TOTALES
+                </th>
+                <th scope="col">
+                    VENTAS TOTALES
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CORRELATIVO_HORA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TOTAL_PERSONAS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CANTIDAD_PRODUCTOS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TOTAL_VENTAS)
-        </td>
-        <td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CORRELATIVO_HORA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TOTAL_PERSONAS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CANTIDAD_PRODUCTOS)
+                    </td>
+                    <td>
+                        Q. @Html.DisplayFor(modelItem => item.TOTAL_VENTAS)
+                    </td>
+                    <td>
 
-            @*<a type="btn" href=" @Url.Action("Edit",new { id = item.COD_DETALLE_ESCENARIO } )" class="btn btn-primary">Editar&nbsp&nbsp</a>*@
-            <a type="btn" href=" @Url.Action("Details",new { id = item.COD_DETALLE_ESCENARIO } )" class="btn btn-success">Detalles&nbsp&nbsp</a>
-            @*<a type="btn" href=" @Url.Action("Delete",new { id = item.COD_DETALLE_ESCENARIO } )" class="btn btn-danger">Eliminar&nbsp&nbsp</a>*@
-        </td>
-    </tr>
-}
+                        @*<a type="btn" href=" @Url.Action("Edit",new { id = item.COD_DETALLE_ESCENARIO } )" class="btn btn-primary">Editar&nbsp&nbsp</a>*@
+                        <a type="btn" href=" @Url.Action("Details",new { id = item.COD_DETALLE_ESCENARIO } )" class="btn btn-success">Detalles&nbsp&nbsp</a>
+                        @*<a type="btn" href=" @Url.Action("Delete",new { id = item.COD_DETALLE_ESCENARIO } )" class="btn btn-danger">Eliminar&nbsp&nbsp</a>*@
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+    </div>
+    <div class="col"></div>
+</div>

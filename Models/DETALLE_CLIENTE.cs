@@ -16,6 +16,10 @@ namespace ProyectoSimulacion1.Models
 
         public int COD_PRODUCTO { get; set; }
 
+        public String NOMBRE_PRODUCTO { get; set; }
+
+        public Double PRECIO { get; set; }
+
         public int COD_DETALLE_HORA { get; set; }
 
         public virtual DETALLE_HORA DETALLE_HORA { get; set; }
