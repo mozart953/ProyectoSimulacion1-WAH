@@ -36,7 +36,7 @@ namespace ProyectoSimulacion1.Models
             string id = Convert.ToString(dato);
             var detHora = new List<DETALLE_HORA>();
 
-            string consulta = "select * from dbo.DETALLE_HORA where COD_DETALLE_ESCENARIO = "+ id+";";
+            string consulta = "SELECT * FROM DETALLE_HORA WHERE COD_DETALLE_ESCENARIO = " + id + ";";
             try
             {
                 using (var contenedor = new Model3())

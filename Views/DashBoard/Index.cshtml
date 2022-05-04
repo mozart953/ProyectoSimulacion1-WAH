@@ -3,85 +3,387 @@
     ViewBag.Title = "Index";
 }
 
-<div id="container"></div>
+<div class="row" style="margin-top:20px">
+    <div class="col"></div>
+    <div class="col-lg-10">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><b>Reporte Productos/Cliente por escenario</b> </div>
+            <div class="panel-body">
+                <canvas id="myBarChart" width="100" height="50"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
 
+<div class="row" style="margin-top:40px">
+    <div class="col"></div>
+    <div class="col-lg-10">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><b>Reporte Productos más solicitados</b> </div>
+            <div class="panel-body">
+                <canvas id="myPieChart" width="100" height="50"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
 
-@section  Scripts{
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<div class="row" style="margin-top:40px">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><b>Reporte Clientes con mayor gasto por escenario</b> </div>
+            <div class="panel-body">
+                <canvas id="myPieChart2" width="100" height="50"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><b>Reporte Clientes con menor gasto por escenario</b> </div>
+            <div class="panel-body">
+                <canvas id="myPieChart3" width="100" height="50"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top:40px">
+    <div class="col"></div>
+    <div class="col-lg-10">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><b>Reporte Ganancia vs Gasto</b> </div>
+            <div class="panel-body">
+                <canvas id="myBarChart2" width="100" height="50"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+
+@section scripts{
     <script>
-        Highcharts.chart('container', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'World\'s largest cities per 2017'
-            },
-            subtitle: {
-                text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
-            },
-            xAxis: {
-                type: 'category',
-                labels: {
-                    rotation: -45,
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: 'Verdana, sans-serif'
+
+        jQuery.ajax({
+                url: '@Url.Action("ReporteClientes", "Dashboard")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    /*console.log(data);*/
+
+                    var arrayClientes = [];
+                    var arrayCantidad = [];
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        /*console.log(data[i].mes)*/
+                        arrayClientes.push(data[i].CLIENTE)
+                        arrayCantidad.push(data[i].CANTIDAD)
                     }
+
+                    console.log(arrayClientes)
+                    console.log(arrayCantidad)
+
+                    var controlBar1 = document.getElementById("myBarChart");
+
+                    var graficoBar1 = new Chart(controlBar1, {
+                        type: 'line',
+                        data: {
+                            labels: arrayClientes,
+                            datasets: [{
+                                label: "Total Productos",
+                                backgroundColor: "#ffb1c1",
+                                borderColor: "#ff3c65",
+                                data: arrayCantidad,
+                                fill: true,
+                            }],
+                        },
+                        options: {
+                            interaction: {
+                                mode: 'index',
+                                intersect: false
+                            },
+                            scales: {
+                                xAxes: [{
+                                    gridLines: {
+                                        display: true
+                                    },
+                                }],
+                                yAxes: [{
+                                    ticks: {
+                                        min: 0,
+                                    },
+                                    gridLines: {
+                                        display: true
+                                    }
+                                }],
+                            },
+                            legend: {
+                                display: true
+                            },
+                            elements: {
+                                line: {
+                                    tension: 0
+                                }
+                            },
+                        }
+                    });
+
+
+                },
+                error: function (error) {
+                    console.log(error)
                 }
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Population (millions)'
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            tooltip: {
-                pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
-            },
-            series: [{
-                name: 'Population',
-                data: [
-                    ['Shanghai', 24.2],
-                    ['Beijing', 20.8],
-                    ['Karachi', 14.9],
-                    ['Shenzhen', 13.7],
-                    ['Guangzhou', 13.1],
-                    ['Istanbul', 12.7],
-                    ['Mumbai', 12.4],
-                    ['Moscow', 12.2],
-                    ['São Paulo', 12.0],
-                    ['Delhi', 11.7],
-                    ['Kinshasa', 11.5],
-                    ['Tianjin', 11.2],
-                    ['Lahore', 11.1],
-                    ['Jakarta', 10.6],
-                    ['Dongguan', 10.6],
-                    ['Lagos', 10.6],
-                    ['Bengaluru', 10.3],
-                    ['Seoul', 9.8],
-                    ['Foshan', 9.3],
-                    ['Tokyo', 9.3]
-                ],
-                dataLabels: {
-                    enabled: true,
-                    rotation: -90,
-                    color: '#FFFFFF',
-                    align: 'right',
-                    format: '{point.y:.1f}', // one decimal
-                    y: 10, // 10 pixels down from the top
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: 'Verdana, sans-serif'
-                    }
-                }
-            }]
         });
+
+        jQuery.ajax({
+                url: '@Url.Action("ReporteTop", "Dashboard")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    //console.log(data);
+
+                    var arrayProductos = [];
+                    var arrayCantidad = [];
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        //console.log(data[i].PRODUCTO)
+                        arrayProductos.push(data[i].PRODUCTO)
+                        arrayCantidad.push(data[i].CANTIDAD)
+                    }
+
+                    //console.log(arrayProductos)
+                    //console.log(arrayCantidad)
+
+                    var controlPIE = document.getElementById("myPieChart");
+
+                    var graficoPie1 = new Chart(controlPIE, {
+                    type: 'doughnut',
+                    data: {
+                        labels: arrayProductos,
+                        datasets: [{
+                            data: arrayCantidad,
+                            backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                        }],
+                    },
+                });
+
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        });
+
+        jQuery.ajax({
+                url: '@Url.Action("ReporteMas", "Dashboard")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    //console.log(data);
+
+                    var arrayCliente = [];
+                    var arrayCantidad = [];
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        //console.log(data[i].PRODUCTO)
+                        arrayCliente.push(data[i].CLIENTE)
+                        arrayCantidad.push(data[i].VENTA)
+                    }
+
+                    //console.log(arrayProductos)
+                    //console.log(arrayCantidad)
+
+                    var controlbar2 = document.getElementById("myPieChart2");
+
+                    var graficoBar2 = new Chart(controlbar2, {
+                    type: 'bar',
+                    data: {
+                        labels: arrayCliente,
+                        datasets: [{
+                            label: "Gasto",
+                            /*backgroundColor: "#0800B1",*/
+                            backgroundColor: ["#EDAB45", "#F7487C", "#554CE1", "#48F7D0", "#C4F542"],
+                            borderColor: "#000000",
+                            borderWidth: 0,
+                            data: arrayCantidad,
+                        }],
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    display: true
+                                },
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                },
+                                gridLines: {
+                                    display: true
+                                }
+                            }],
+                        },
+                        legend: {
+                            display: true
+                        }
+                    }
+                });
+
+
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        });
+
+        jQuery.ajax({
+                url: '@Url.Action("ReporteMenos", "Dashboard")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    //console.log(data);
+
+                    var arrayCliente = [];
+                    var arrayCantidad = [];
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        //console.log(data[i].PRODUCTO)
+                        arrayCliente.push(data[i].CLIENTE)
+                        arrayCantidad.push(data[i].VENTA)
+                    }
+
+                    //console.log(arrayProductos)
+                    //console.log(arrayCantidad)
+
+                    var controlbar3 = document.getElementById("myPieChart3");
+
+                    var graficoBar3 = new Chart(controlbar3, {
+                        type: 'bar',
+                        data: {
+                            labels: arrayCliente,
+                            datasets: [{
+                                label: "Gasto",
+                                /*backgroundColor: "#0800B1",*/
+                                backgroundColor: ["#ED6153", "#9757F7", "#5AD1E0", "#86F757", "#F5C652"],
+                                borderColor: "#000000",
+                                borderWidth: 0,
+                                data: arrayCantidad,
+                            }],
+                        },
+                        options: {
+                            scales: {
+                                xAxes: [{
+                                    gridLines: {
+                                        display: true
+                                    },
+                                }],
+                                yAxes: [{
+                                    ticks: {
+                                        min: 0,
+                                    },
+                                    gridLines: {
+                                        display: true
+                                    }
+                                }],
+                            },
+                            legend: {
+                                display: true
+                            }
+                        }
+                    });
+
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        });
+
+        jQuery.ajax({
+                url: '@Url.Action("ReporteGasto", "Dashboard")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    //console.log(data);
+
+                    var arrayHora = [];
+                    var arrayGanancia = [];
+                    var arrayGasto = [];
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        //console.log(data[i].PRODUCTO)
+                        arrayHora.push(data[i].HORA)
+                        arrayGanancia.push(data[i].GANANCIA)
+                        arrayGasto.push(data[i].GASTO)
+                    }
+
+                    //console.log(arrayProductos)
+                    //console.log(arrayCantidad)
+
+                    var controlbar4 = document.getElementById("myBarChart2");
+
+                    var graficoBar4 = new Chart(controlbar4, {
+                    type: 'bar',
+                    data: {
+                        labels: arrayHora,
+                        datasets: [
+                            {
+                                label: "Ganancia",
+                                backgroundColor: "#01DC00",
+                                borderColor: "#000000",
+                                data: arrayGanancia,
+                            },
+                            {
+                                label: "Gasto",
+                                backgroundColor: "#FA7334",
+                                borderColor: "#000000",
+                                data: arrayGasto,
+                            }],
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    display: true
+                                },
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                },
+                                gridLines: {
+                                    display: true
+                                }
+                            }],
+                        },
+                        legend: {
+                            display: true
+                        }
+                    }
+                });
+
+
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        });
+
+
 
     </script>
 

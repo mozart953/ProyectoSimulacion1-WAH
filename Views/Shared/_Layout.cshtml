@@ -22,7 +22,7 @@
                 </button>
                 @Html.ActionLink("Proyecto final", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-         
+
             <div class="navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="navbar-brand">
@@ -30,10 +30,10 @@
 
                     </li>
                     <li class="navbar-brand">
-                        <a class="nav-link" href=" @Url.Action("Index", "DETALLE_ESCENARIO")">LISTADO_ESCENARIOS&nbsp&nbsp</a>
+                        <a class="nav-link" href=" @Url.Action("Index", "DETALLE_ESCENARIO")">ESCENARIO&nbsp&nbsp</a>
                     </li>
                     <li class="navbar-brand">
-                        <a class="nav-link" href=" @Url.Action("Index", "DashBoard")">Gráfica&nbsp&nbsp</a>
+                        <a class="nav-link" href=" @Url.Action("Index", "DashBoard")">GRÁFICOS&nbsp&nbsp</a>
                     </li>
 
                 </ul>
@@ -50,12 +50,14 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Proyecto final-simulacion1</p>
+            <p>&copy; @DateTime.Now.Year - Proyecto final - MODELACIÓN Y SIMULACIÓN 1</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap.js")
+    @Scripts.Render("~/Scripts/Chart.min.js")
+    @Scripts.Render("~/Scripts/jquery-3.6.0.min.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>
